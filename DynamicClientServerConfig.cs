@@ -5,11 +5,24 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 
+
+namespace MultiplayerARPG.MMO
+{
+    [DefaultExecutionOrder(-898)]
+    public partial class MMOClientInstance : MonoBehaviour
+    {
+        public void SetNetworkSettings(MmoNetworkSetting[] NetworkSettings)
+        {
+            networkSettings = NetworkSettings;
+        }
+    }
+}
+
 /// <summary>
 /// MMO.MMOClientInstance.Singleton.networkSettings needs to be changed from private to internal scope
 /// </summary>
 namespace MultiplayerARPG
-{
+{   
     public partial class GameInstance
     {
         /// <summary>
@@ -72,7 +85,7 @@ namespace MultiplayerARPG
                         }
 
                         //Assign to clientInstance
-                        MMO.MMOClientInstance.Singleton.networkSettings = networkSettings;
+                        MMO.MMOClientInstance.Singleton.SetNetworkSettings(networkSettings);
                     }
                 }
                 catch (Exception e)
@@ -94,7 +107,7 @@ namespace MultiplayerARPG
         /// and if found, replace networkSettings in MMOClientInstance with these
         /// </summary>
         [DevExtMethods("LoadedGameData")]
-        public void DevExt_ReadClientServerConfig()
+        public void DevExt_ReadClientServerConfigWebGL()
         {
             StartCoroutine(WebGLHandleClientServerConfig());
         }
@@ -146,7 +159,7 @@ namespace MultiplayerARPG
                         }
 
                         //Assign to clientInstance
-                        MMO.MMOClientInstance.Singleton.networkSettings = networkSettings;
+                        MMO.MMOClientInstance.Singleton.SetNetworkSettings(networkSettings);
                     }
                 }
                 catch (Exception e)
