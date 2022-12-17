@@ -14,6 +14,7 @@
 Now, you can just add steps in your CD pipeline to rename or delete other configs
 5. Can use hostname or IP
 6. Supports all standalone platforms, ios, android and even WebGL
+7. Falls back to whatever Server List you have setup in your Scene if cannot find the serverConfig CSV file or fails to read it
 
 ## How to use: ##
 1. The addon is plug and play, just drop it in your project.
