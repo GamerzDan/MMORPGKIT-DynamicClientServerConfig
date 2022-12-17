@@ -115,7 +115,7 @@ namespace MultiplayerARPG
                 //Debug.Log(uwr.downloadHandler.text);
                 try
                 {
-                    string csvText = File.ReadAllText(uwr.downloadHandler.text);
+                    string csvText = uwr.downloadHandler.text;
                     if (csvText != "")
                     {
                         //Separate multiple servers
