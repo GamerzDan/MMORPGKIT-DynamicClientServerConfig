@@ -8,7 +8,6 @@ using UnityEngine.Networking;
 
 namespace MultiplayerARPG.MMO
 {
-    [DefaultExecutionOrder(-898)]
     public partial class MMOClientInstance : MonoBehaviour
     {
         public void SetNetworkSettings(MmoNetworkSetting[] NetworkSettings)
